@@ -14,8 +14,21 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          - model: "SM-T865"
-            region: "DBT"
+          # XXV OMC
+          - model: "SM-A736B"
+            region: "XXV"
+          # ZTO OMC
+          - model: "SM-A736B"
+            region: "ZTO"
+          # NBS OMC
+          - model: "SM-A736B"
+            region: "NBS"
+          # OKR OMC
+          - model: "SM-A736B"
+            region: "BVO"
+          # FWD OMC
+          - model: "SM-A736B"
+            region: "FWD"
 
     steps:
       - name: Checkout repo
@@ -144,13 +157,13 @@ jobs:
         uses: ad-m/github-push-action@master
         with:
           tags: true
-          github_token: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Upload release assets
         if: env.need_update == 1
         uses: CaptainThrowback/action-gh-release@master
         env:
-          GITHUB_TOKEN: ${{ secrets.TOKEN }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
         with:
           body_path: version.txt
           tag_name: ${{ env.name }}
