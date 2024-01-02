@@ -14,21 +14,12 @@ jobs:
       fail-fast: false
       matrix:
         include:
-          # XXV OMC
-          - model: "SM-A736B"
-            region: "XXV"
-          # ZTO OMC
-          - model: "SM-A736B"
-            region: "ZTO"
-          # NBS OMC
-          - model: "SM-A736B"
-            region: "NBS"
-          # OKR OMC
-          - model: "SM-A736B"
-            region: "BVO"
-          # FWD OMC
-          - model: "SM-A736B"
-            region: "FWD"
+          # EUX OMC
+          - model: "SM-A137F"
+            region: "EUX"
+          # EUR OMC
+          - model: "SM-A137F"
+            region: "eur"
 
     steps:
       - name: Checkout repo
